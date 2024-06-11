@@ -7,4 +7,4 @@ def hello():
     """
         return hello World
     """
-    return "Hello World! This is Flask."
+    return "Hello World!."
