@@ -7,4 +7,4 @@ def hello():
     """
         return hello World
     """
-    return "Hello World!."
+    return "Hello! Deployment is successfull ."
