@@ -52,7 +52,12 @@ app.config["SECRET_KEY"] = "TEST"
 CORS(app, supports_credentials=True)
 db = SQLAlchemy(app)
 
-
+@app.route("/")
+def hello():
+    """
+        return hello World
+    """
+    return "Hello! ."
 
 
 @app.route('/api/getQuestions', methods = ['POST'])
