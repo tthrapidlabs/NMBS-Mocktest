@@ -1,0 +1,16 @@
+User: Hai
+AI: Hello! How can I assist you today?
+User: Quel est le poids à vide de la voiture série I10 B (200)?
+AI: *Poids à vide de la voiture série I10 B (200)*
+
+- Le poids à vide de la voiture série I10 B (200) est de 49 tonnes.
+
+Source: Voitures série I10
+User: 1 . Qu'est-ce qui est utilisé pour le calcul du poids frein en trafic intérieur?
+AI: *Calcul du poids frein en trafic intérieur*
+
+- Les données reprises en colonne 6 sont utilisées pour le calcul du poids frein en trafic intérieur.
+- Ces données sont spécifiques aux voitures de la série I10.
+- Les types de voitures I10 comprennent I10 A, I10 B (160), I10 B (200), I10 WR et I10 DMS.
+
+Source : Voitures série I10
