@@ -12,7 +12,6 @@ on:
 
 env:
   WEBAPP_NAME: 'NMBS'             # Replace with the name of your Azure web app
-  RESOURCE_GROUP: 'exploreopenai' 
 
 jobs:
   build:
@@ -55,7 +54,6 @@ jobs:
           name: python-app
           path: |
             server/release.zip
-            !node_modules/
             !venv/
 
   deploy:
@@ -83,15 +81,6 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_ABF43A191FE849D580BC83AB920C348B }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0D15F0F8AA76471E820027559F53C81B }}
 
-      - name: Configure deployment and runtime settings on the webapp
-        run: |
-          az configure --defaults ${{ env.RESOURCE_GROUP }}
-          az webapp config appsettings --name ${{ env.WEBAPP_NAME }} --settings \
-              SCM_DO_BUILD_DURING_DEPLOYMENT=true \
-              FLASK_ENV=production
-
-          az webapp config set --name ${{ env.WEBAPP_NAME }} \
-              --startup-file "gunicorn --bind=0.0.0.0 --timeout 600 run:app"
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
