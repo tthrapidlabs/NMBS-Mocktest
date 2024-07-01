@@ -74,6 +74,17 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_ABF43A191FE849D580BC83AB920C348B }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0D15F0F8AA76471E820027559F53C81B }}
 
+
+      - name: Configure deployment and runtime settings on the webapp
+        run: |
+          az configure --defaults exploreopenai
+          az webapp config appsettings --name NMBS --settings \
+              SCM_DO_BUILD_DURING_DEPLOYMENT=true \
+              FLASK_ENV=production
+
+          az webapp config set --name NMBS \
+              --startup-file "gunicorn --bind=0.0.0.0 --timeout 600 app:app"
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
